@@ -1,0 +1,2 @@
+rootProject.name='Hand of the Kings'
+include ':app'

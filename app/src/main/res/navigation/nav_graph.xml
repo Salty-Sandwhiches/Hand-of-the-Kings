@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/appTypeDecisionFragment">
+
+    <fragment
+        android:id="@+id/decisionPlayerTurnFragment"
+        android:name="nl.looplan.hotk.ui.fragments.DecisionPlayerTurnFragment"
+        android:label="DecisionPlayerTurnFragment"
+        tools:layout="@layout/fragment_decision_player_turn">
+        <action
+            android:id="@+id/action_decisionPlayerTurnFragment_to_landSelectionForBattleFragment"
+            app:destination="@id/landSelectionForBattleFragment" />
+        <action
+            android:id="@+id/action_decisionPlayerTurnFragment_to_moneyEarnedBySavingUpFragment"
+            app:destination="@id/moneyEarnedBySavingUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landSelectionForBattleFragment"
+        android:name="nl.looplan.hotk.ui.fragments.LandSelectionForBattleFragment"
+        android:label="LandSelectionForBattleFragment"
+        tools:layout="@layout/fragment_land_selection_for_battle">
+        <action
+            android:id="@+id/action_landSelectionForBattleFragment_to_armyDetailsForBattleFragment"
+            app:destination="@id/armyDetailsForBattleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moneyEarnedBySavingUpFragment"
+        android:name="nl.looplan.hotk.ui.fragments.MoneyEarnedBySavingUpFragment"
+        android:label="MoneyEarnedBySavingUpFragment"
+        tools:layout="@layout/fragment_money_earned_by_saving_up">
+        <action
+            android:id="@+id/action_moneyEarnedBySavingUpFragment_to_decisionPlayerTurnFragment"
+            app:destination="@id/decisionPlayerTurnFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/armyDetailsForBattleFragment"
+        android:name="nl.looplan.hotk.ui.fragments.ArmyDetailsForBattleFragment"
+        android:label="fragment_army_details_for_battle"
+        tools:layout="@layout/fragment_army_details_for_battle" >
+        <action
+            android:id="@+id/action_armyDetailsForBattleFragment_to_resultsInconclusiveForBattleFragment"
+            app:destination="@id/resultsInconclusiveForBattleFragment" />
+        <action
+            android:id="@+id/action_armyDetailsForBattleFragment_to_resultsVictoryForBattleFragment"
+            app:destination="@id/resultsVictoryForBattleFragment" />
+        <action
+            android:id="@+id/action_armyDetailsForBattleFragment_to_resultsDefeatForBattleFragment"
+            app:destination="@id/resultsDefeatForBattleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsInconclusiveForBattleFragment"
+        android:name="nl.looplan.hotk.ui.fragments.ResultsInconclusiveForBattleFragment"
+        android:label="fragment_results_inconclusive_for_battle"
+        tools:layout="@layout/fragment_results_inconclusive_for_battle" >
+        <action
+            android:id="@+id/action_resultsInconclusiveForBattleFragment_self"
+            app:destination="@id/resultsInconclusiveForBattleFragment" />
+        <action
+            android:id="@+id/action_resultsInconclusiveForBattleFragment_to_resultsVictoryForBattleFragment"
+            app:destination="@id/resultsVictoryForBattleFragment" />
+        <action
+            android:id="@+id/action_resultsInconclusiveForBattleFragment_to_resultsDefeatForBattleFragment"
+            app:destination="@id/resultsDefeatForBattleFragment" />
+        <action
+            android:id="@+id/action_resultsInconclusiveForBattleFragment_to_decisionAfterAttackFragment"
+            app:destination="@id/decisionAfterAttackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsVictoryForBattleFragment"
+        android:name="nl.looplan.hotk.ui.fragments.ResultsVictoryForBattleFragment"
+        android:label="fragment_results_victory_for_battle"
+        tools:layout="@layout/fragment_results_victory_for_battle" >
+        <action
+            android:id="@+id/action_resultsVictoryForBattleFragment_to_decisionAfterAttackFragment"
+            app:destination="@id/decisionAfterAttackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsDefeatForBattleFragment"
+        android:name="nl.looplan.hotk.ui.fragments.ResultsDefeatForBattleFragment"
+        android:label="fragment_results_defeat_for_battle"
+        tools:layout="@layout/fragment_results_defeat_for_battle" >
+        <action
+            android:id="@+id/action_resultsDefeatForBattleFragment_to_decisionAfterAttackFragment"
+            app:destination="@id/decisionAfterAttackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/decisionAfterAttackFragment"
+        android:name="nl.looplan.hotk.ui.fragments.DecisionAfterAttackFragment"
+        android:label="DecisionAfterAttackFragment"
+        tools:layout="@layout/fragment_decision_after_attack">
+        <action
+            android:id="@+id/action_decisionAfterAttackFragment_to_landSelectionForBattleFragment"
+            app:destination="@id/landSelectionForBattleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appTypeDecisionFragment"
+        android:name="nl.looplan.hotk.ui.fragments.AppTypeDecisionFragment"
+        android:label="fragment_app_type_decision"
+        tools:layout="@layout/fragment_app_type_decision" >
+        <action
+            android:id="@+id/action_appTypeDecisionFragment_to_decisionPlayerTurnFragment"
+            app:destination="@id/decisionPlayerTurnFragment" />
+        <action
+            android:id="@+id/action_appTypeDecisionFragment_to_bankFragment"
+            app:destination="@id/bankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankFragment"
+        android:name="nl.looplan.hotk.ui.fragments.BankFragment"
+        android:label="fragment_bank"
+        tools:layout="@layout/fragment_bank" />
+</navigation>

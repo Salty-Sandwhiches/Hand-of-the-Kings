@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.ResultsInconclusiveForBattleFragment">
+
+    <ImageView
+        android:id="@+id/fragment_decision_player_turn_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/fragment_results_inconclusive_for_battle_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_results_inconclusive_for_battle_guideline_image"/>
+
+    <TextView
+        android:id="@+id/fragment_results_inconclusive_for_battle_army_A_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="4"
+        android:fontFamily="@font/game_of_thrones"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+        app:layout_constraintEnd_toEndOf="@id/fragment_results_inconclusive_for_battle_guideline_middle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_results_inconclusive_for_battle_guideline_image"
+        app:layout_constraintBottom_toTopOf="@id/fragment_results_inconclusive_for_battle_guideline_bottom"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/fragment_results_inconclusive_for_battle_army_B_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="2"
+        android:fontFamily="@font/game_of_thrones"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_results_inconclusive_for_battle_guideline_middle"
+        app:layout_constraintTop_toBottomOf="@id/fragment_results_inconclusive_for_battle_guideline_image"
+        app:layout_constraintBottom_toTopOf="@id/fragment_results_inconclusive_for_battle_guideline_bottom"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/fragment_results_inconclusive_for_battle_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Run Again"
+        android:fontFamily="@font/game_of_thrones"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:layout_constraintTop_toBottomOf="@id/fragment_results_inconclusive_for_battle_guideline_bottom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_results_inconclusive_for_battle_stop"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/fragment_results_inconclusive_for_battle_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Stop"
+        android:fontFamily="@font/game_of_thrones"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:layout_constraintTop_toBottomOf="@id/fragment_results_inconclusive_for_battle_again"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_results_inconclusive_for_battle_guideline_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_results_inconclusive_for_battle_guideline_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_results_inconclusive_for_battle_guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
