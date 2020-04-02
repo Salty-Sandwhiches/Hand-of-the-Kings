@@ -32,19 +32,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_decision_player_turn_name"
-        app:layout_constraintBottom_toTopOf="@id/fragment_decision_player_turn_button_layout"/>
+        app:layout_constraintBottom_toTopOf="@id/fragment_decision_player_turn_stats"/>
+
+    <LinearLayout
+        android:id="@+id/fragment_decision_player_turn_stats"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@id/fragment_decision_player_turn_button_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_decision_player_turn_image">
+
+        <TextView
+            android:id="@+id/fragment_decision_player_turn_stats_income"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Income: 20"
+            android:layout_marginBottom="5dp"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/supernatural_knight"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/fragment_decision_player_turn_stats_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save: 20"
+            android:layout_marginBottom="5dp"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/supernatural_knight"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/fragment_decision_player_turn_stats_lands"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lands: 20"
+            android:layout_marginBottom="5dp"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/supernatural_knight"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/fragment_decision_player_turn_button_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_decision_player_turn_image" >
+        app:layout_constraintTop_toBottomOf="@id/fragment_decision_player_turn_stats" >
 
         <Button
             android:id="@+id/fragment_decision_player_turn_battle"
@@ -54,7 +100,7 @@
             android:layout_marginRight="20dp"
             android:text="Attack"
             android:fontFamily="@font/game_of_thrones"
-            android:textSize="20sp"
+            android:textSize="35sp"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             />
 
@@ -66,7 +112,7 @@
             android:layout_marginLeft="20dp"
             android:text="Save up"
             android:fontFamily="@font/game_of_thrones"
-            android:textSize="20sp"
+            android:textSize="35sp"
             style="@style/Widget.MaterialComponents.Button.TextButton" />
 
     </LinearLayout>

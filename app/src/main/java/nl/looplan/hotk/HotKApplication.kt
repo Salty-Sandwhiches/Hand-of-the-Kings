@@ -8,12 +8,6 @@ class HotKApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        // Fetch kingdoms
-        Kingdom.fetchKingdoms()
-
-        // Fetch lands
-        Land.fetchLands()
-
 
     }
 }

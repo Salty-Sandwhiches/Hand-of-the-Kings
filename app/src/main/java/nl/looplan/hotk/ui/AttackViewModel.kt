@@ -16,22 +16,4 @@ class AttackViewModel : ViewModel() {
     val defendersBonus: MutableLiveData<Double> = MutableLiveData()
     val battleResult: MutableLiveData<BattleSimulator.Result> = MutableLiveData()
 
-    init {
-        destinationLand.observeForever { land ->
-            FirebaseFirestore.getInstance()
-                .collection("players")
-                .whereArrayContains("lands", land.id)
-                .get()
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful) {
-                        val result = task.result!!
-                        val playerDocument = result.documents.singleOrNull()
-                        val player = playerDocument?.toObject(Player::class.java)
-                        if(player != null) {
-                            defendingPlayer.value = player
-                        }
-                    }
-                }
-        }
-    }
 }

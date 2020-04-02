@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_decision_after_attack.*
 
 import nl.looplan.hotk.R
-import nl.looplan.hotk.ui.AttackViewModel
+import nl.looplan.hotk.ui.MainViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -32,7 +32,16 @@ class DecisionAfterAttackFragment : Fragment() {
             findNavController().navigate(action)
         }
         fragment_decision_after_attack_done.setOnClickListener {
-            val attackViewModel: AttackViewModel by activityViewModels()
+            val mainViewModel: MainViewModel by activityViewModels()
+            val hasEverybodyTakenItsTurn = mainViewModel.hasEveryPlayerTakenItsTurn()
+            val action = if(hasEverybodyTakenItsTurn) {
+                mainViewModel.nextTurn()
+                DecisionAfterAttackFragmentDirections.actionDecisionAfterAttackFragmentToEndOfTurnFragment()
+            } else {
+                mainViewModel.nextPlayer()
+                DecisionAfterAttackFragmentDirections.actionDecisionAfterAttackFragmentToDecisionPlayerTurnFragment()
+            }
+            findNavController().navigate(action)
         }
     }
 

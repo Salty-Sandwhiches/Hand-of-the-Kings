@@ -4,6 +4,7 @@ import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.PropertyName
 import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.coroutines.tasks.await
 
 data class Land(
     @DocumentId() var id: String,
@@ -32,18 +33,24 @@ data class Land(
     companion object {
         val All: MutableList<Land> = ArrayList()
 
-        fun fetchLands() {
-            FirebaseFirestore.getInstance()
-                .collection("lands")
-                .get()
-                .addOnCompleteListener { task ->
-                    val snapshot: QuerySnapshot? = task.result
-                    val lands: MutableList<Land>? = snapshot?.toObjects(
-                        Land::class.java)
-                    if(lands != null) {
-                        All.addAll(lands)
-                    }
+        suspend fun fetchLands(): Boolean {
+            return try {
+                val snapshot = FirebaseFirestore.getInstance()
+                    .collection("lands")
+                    .get()
+                    .await()
+
+                val lands: MutableList<Land>? = snapshot?.toObjects(
+                    Land::class.java)
+                if(lands != null) {
+                    All.addAll(lands)
+                    true
+                } else {
+                    false
                 }
+            } catch (e: Exception) {
+                false
+            }
         }
     }
 }

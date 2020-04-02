@@ -32,6 +32,8 @@
         app:layout_constraintBottom_toTopOf="@id/fragment_land_selection_for_battle_destination"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_land_selection_for_battle_title" />
 
@@ -43,6 +45,7 @@
         android:minWidth="150dp"
         android:minHeight="30dp"
         android:textAlignment="center"
+        android:textSize="30sp"
         android:gravity="center_horizontal"
         android:ems="10"
         app:layout_constraintBottom_toTopOf="@id/fragment_land_selection_for_battle_next_button"
@@ -55,9 +58,9 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="50dp"
         android:text="Next"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:fontFamily="@font/game_of_thrones"
         app:layout_constraintTop_toBottomOf="@id/fragment_land_selection_for_battle_destination"
         app:layout_constraintBottom_toBottomOf="parent"

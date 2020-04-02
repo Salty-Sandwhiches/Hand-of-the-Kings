@@ -38,39 +38,21 @@ class ResultsVictoryForBattleFragment : Fragment() {
             val mainViewModel: MainViewModel by activityViewModels()
             val land = attackViewModel.destinationLand.value!!
 
-            val attackingPlayer = mainViewModel.currentPlayer.value!!
-            val attackingPlayerLands = attackingPlayer.lands.apply {
-                add(land.id)
+            val attackingPlayer = mainViewModel.currentPlayer.value!!.apply {
+                this.lands.add(land)
             }
 
-            val defendingPlayer = attackViewModel.defendingPlayer.value!!
-            val defendingPlayerLands = defendingPlayer.lands.apply {
-                remove(land.id)
+            val defendingPlayer = attackViewModel.defendingPlayer.value!!.apply {
+                this.lands.remove(land)
             }
 
-            // Update attacker's lands
-            FirebaseFirestore.getInstance()
-                .collection("players")
-                .document(attackingPlayer.id)
-                .update("lands", attackingPlayerLands)
+            // Update attacker
+            mainViewModel.getPlayerReference(attackingPlayer.id)
+                .set(attackingPlayer)
 
-            // Update attacker's income
-            FirebaseFirestore.getInstance()
-                .collection("players")
-                .document(defendingPlayer.id)
-                .update("income", attackingPlayer.income)
-
-            // Update defender's lands
-            FirebaseFirestore.getInstance()
-                .collection("players")
-                .document(defendingPlayer.id)
-                .update("lands", defendingPlayerLands)
-
-            // Update defender's income
-            FirebaseFirestore.getInstance()
-                .collection("players")
-                .document(defendingPlayer.id)
-                .update("income", defendingPlayer.income)
+            // Update defender
+            mainViewModel.getPlayerReference(defendingPlayer.id)
+                .set(defendingPlayer)
 
             val action = ResultsVictoryForBattleFragmentDirections.actionResultsVictoryForBattleFragmentToDecisionAfterAttackFragment()
             findNavController().navigate(action)

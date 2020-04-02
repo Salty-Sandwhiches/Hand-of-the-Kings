@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_money_earned_by_saving_up.*
 
 import nl.looplan.hotk.R
-import nl.looplan.hotk.data.Kingdom
 import nl.looplan.hotk.data.Player
-import nl.looplan.hotk.ui.AttackViewModel
 import nl.looplan.hotk.ui.MainViewModel
 
 /**
@@ -30,22 +30,22 @@ class MoneyEarnedBySavingUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        updateMoneyEarned()
-    }
-
-    private fun updateMoneyEarned() {
-        val income = calculateMoneyEarned()
-        fragment_money_earned_by_saving_up_title.text = "$income"
-    }
-
-    private fun calculateMoneyEarned(): Number {
         val mainViewModel: MainViewModel by activityViewModels()
-        val player = mainViewModel.player.value!!
-        val multiplier = if(player.hasKingdom) {
-            15
-        } else {
-            20
+        mainViewModel.currentPlayer.observe(viewLifecycleOwner, Observer { player ->
+            val income = player.saveIncome
+            fragment_money_earned_by_saving_up_title.text = "$income"
+        })
+
+        fragment_money_earned_by_saving_up_next.setOnClickListener {
+            val hasEverybodyTakenItsTurn = mainViewModel.hasEveryPlayerTakenItsTurn()
+            val action = if(hasEverybodyTakenItsTurn) {
+                mainViewModel.nextTurn()
+                MoneyEarnedBySavingUpFragmentDirections.actionMoneyEarnedBySavingUpFragmentToEndOfTurnFragment()
+            } else {
+                mainViewModel.nextPlayer()
+                MoneyEarnedBySavingUpFragmentDirections.actionMoneyEarnedBySavingUpFragmentToDecisionPlayerTurnFragment()
+            }
+            findNavController().navigate(action)
         }
-        return player.lands.size * multiplier
     }
 }

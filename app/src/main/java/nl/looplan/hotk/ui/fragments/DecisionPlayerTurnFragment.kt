@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_decision_player_turn.*
 
 import nl.looplan.hotk.R
+import nl.looplan.hotk.data.Player
 import nl.looplan.hotk.ui.MainViewModel
 
 /**
@@ -30,10 +31,12 @@ class DecisionPlayerTurnFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mainViewModel: MainViewModel by activityViewModels()
-        mainViewModel.setup("gmweMYOfiLhAbQMINg0j")
 
-        mainViewModel.player.observe(viewLifecycleOwner, Observer { player ->
-            fragment_decision_player_turn_name.text = player.name
+        mainViewModel.currentPlayer.observe(viewLifecycleOwner, Observer { player: Player? ->
+            fragment_decision_player_turn_name.text = player?.name
+            fragment_decision_player_turn_stats_income.text = "Income: ${player?.income}"
+            fragment_decision_player_turn_stats_save.text = "Save: ${player?.saveIncome}"
+            fragment_decision_player_turn_stats_lands.text = "Lands: ${player?.lands?.size}"
         })
 
         fragment_decision_player_turn_battle.setOnClickListener {
