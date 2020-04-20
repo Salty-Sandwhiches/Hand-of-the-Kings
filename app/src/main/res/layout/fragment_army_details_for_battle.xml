@@ -55,7 +55,9 @@
             android:text=""
             android:textAlignment="center"
             android:inputType="number"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/fragment_army_details_for_battle_army_size_right_layout"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,7 +83,9 @@
             android:text=""
             android:inputType="numberDecimal"
             android:textAlignment="center"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/fragment_army_details_for_battle_bonus_right_input"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +109,9 @@
             android:text=""
             android:textAlignment="center"
             android:inputType="number"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/fragment_army_details_for_battle_bonus_left_input"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +137,8 @@
             android:text=""
             android:inputType="numberDecimal"
             android:textAlignment="center"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:imeOptions="actionDone"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
