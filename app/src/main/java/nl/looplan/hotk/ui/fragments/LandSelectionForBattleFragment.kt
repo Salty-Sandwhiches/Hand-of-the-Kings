@@ -44,19 +44,22 @@ class LandSelectionForBattleFragment : Fragment() {
         fragment_land_selection_for_battle_next_button.setOnClickListener {
             val landName = fragment_land_selection_for_battle_destination.text.toString()
             if(landName.isNotBlank()) {
-                val land = Land.All.single { land ->
-                    land.name == landName
-                }
-                val mainViewModel: MainViewModel by activityViewModels()
-                val attackViewModel: AttackViewModel by activityViewModels()
-
-                attackViewModel.destinationLand.value = land
-                attackViewModel.defendingPlayer.value = mainViewModel.players.value?.singleOrNull {
-                    player -> player.lands.contains(land)
+                val land = Land.All.singleOrNull { land ->
+                    (land.name == landName)
                 }
 
-                val action = LandSelectionForBattleFragmentDirections.actionLandSelectionForBattleFragmentToArmyDetailsForBattleFragment()
-                findNavController().navigate(action)
+                if(land != null) {
+                    val mainViewModel: MainViewModel by activityViewModels()
+                    val attackViewModel: AttackViewModel by activityViewModels()
+
+                    attackViewModel.destinationLand.value = land
+                    attackViewModel.defendingPlayer.value = mainViewModel.players.value?.singleOrNull {
+                            player -> player.lands.contains(land)
+                    }
+
+                    val action = LandSelectionForBattleFragmentDirections.actionLandSelectionForBattleFragmentToArmyDetailsForBattleFragment()
+                    findNavController().navigate(action)
+                }
             }
         }
     }

@@ -95,7 +95,7 @@ class MainViewModel : ViewModel() {
         }
         baseTurnRef.set(Turn("", Timestamp.now(), players[0].id,
             players.map { it.id } as MutableList<String>))
-        
+
         // Create a turn and set the timestamp
         val turnRef = gameRef.collection("turns")
             .document("0")
