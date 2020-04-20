@@ -31,7 +31,6 @@
         android:src="@drawable/fragment_land_selection_for_battle_image"
         app:layout_constraintBottom_toTopOf="@id/fragment_land_selection_for_battle_destination"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
