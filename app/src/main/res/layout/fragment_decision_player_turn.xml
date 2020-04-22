@@ -6,17 +6,24 @@
     android:layout_height="match_parent"
     tools:context="ui.fragments.DecisionPlayerTurnFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2" />
+
     <TextView
         android:id="@+id/fragment_decision_player_turn_name"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Player name"
-        android:textSize="50sp"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@id/fragment_decision_player_turn_image"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/titleGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

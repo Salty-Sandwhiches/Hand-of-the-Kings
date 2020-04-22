@@ -6,10 +6,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.EndOfTurnFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2" />
+
     <TextView
         android:id="@+id/fragment_end_of_turn_title"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -17,9 +24,11 @@
         android:textAlignment="center"
         android:fontFamily="@font/game_of_thrones"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/titleGuideline"
         android:gravity="center_horizontal" />
 
     <ImageView

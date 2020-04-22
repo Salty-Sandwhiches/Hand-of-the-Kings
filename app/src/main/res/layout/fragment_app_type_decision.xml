@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.AppTypeDecisionFragment">
 
+
+
     <ImageView
         android:id="@+id/fragment_app_type_decision_image"
         android:layout_width="0dp"
