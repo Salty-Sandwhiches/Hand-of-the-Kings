@@ -112,15 +112,7 @@
         <action
             android:id="@+id/action_appTypeDecisionFragment_to_decisionPlayerTurnFragment"
             app:destination="@id/decisionPlayerTurnFragment" />
-        <action
-            android:id="@+id/action_appTypeDecisionFragment_to_bankFragment"
-            app:destination="@id/bankFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/bankFragment"
-        android:name="nl.looplan.hotk.ui.fragments.BankFragment"
-        android:label="fragment_bank"
-        tools:layout="@layout/fragment_bank" />
     <fragment
         android:id="@+id/endOfTurnFragment"
         android:name="nl.looplan.hotk.ui.fragments.EndOfTurnFragment"

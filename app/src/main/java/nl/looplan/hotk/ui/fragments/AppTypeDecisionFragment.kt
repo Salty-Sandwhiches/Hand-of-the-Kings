@@ -30,11 +30,6 @@ class AppTypeDecisionFragment : Fragment() {
             val action = AppTypeDecisionFragmentDirections.actionAppTypeDecisionFragmentToDecisionPlayerTurnFragment()
             findNavController().navigate(action)
         }
-
-        fragment_app_type_decision_bank.setOnClickListener {
-            val action = AppTypeDecisionFragmentDirections.actionAppTypeDecisionFragmentToBankFragment()
-            findNavController().navigate(action)
-        }
     }
 
 }

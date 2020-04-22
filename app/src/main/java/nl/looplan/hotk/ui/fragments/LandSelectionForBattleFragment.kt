@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_land_selection_for_battle.*
 import nl.looplan.hotk.R
 import nl.looplan.hotk.data.Land
 import nl.looplan.hotk.ui.AttackViewModel
+import nl.looplan.hotk.ui.LandNameAdapter
 import nl.looplan.hotk.ui.MainViewModel
 
 /**
@@ -28,17 +30,21 @@ class LandSelectionForBattleFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_land_selection_for_battle, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val landNames = Land.All.map {
                 land -> land.name
-        }.toTypedArray()
-        val adapter = ArrayAdapter(this.context!!, android.R.layout.simple_dropdown_item_1line, landNames)
+        }.toMutableList()
+        val landNamesNormalized = LandNameAdapter.normalizeListOfStrings(landNames)
+
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
+        val adapter = LandNameAdapter(this.context!!, landNames, landNamesNormalized)
+        adapter.notifyDataSetChanged()
         fragment_land_selection_for_battle_destination.setAdapter(adapter)
         fragment_land_selection_for_battle_destination.threshold = 1
-        adapter.notifyDataSetChanged()
-
 
 
         fragment_land_selection_for_battle_next_button.setOnClickListener {

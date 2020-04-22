@@ -9,19 +9,19 @@
     <TextView
         android:id="@+id/fragment_land_selection_for_battle_title"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:text="Choose your land"
-        android:textSize="25sp"
-        android:textAlignment="center"
         android:fontFamily="@font/game_of_thrones"
+        android:gravity="center_horizontal"
+        android:text="Choose your land"
+        android:textAlignment="center"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/titleGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fragment_land_selection_for_battle_image"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/fragment_land_selection_for_battle_image"
@@ -40,17 +40,17 @@
         android:id="@+id/fragment_land_selection_for_battle_destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Destination"
         android:minWidth="150dp"
         android:minHeight="30dp"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:ems="10"
         app:layout_constraintBottom_toTopOf="@id/fragment_land_selection_for_battle_next_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_land_selection_for_battle_image"/>
+        app:layout_constraintTop_toBottomOf="@id/fragment_land_selection_for_battle_image" />
 
     <Button
         android:id="@+id/fragment_land_selection_for_battle_next_button"
@@ -58,12 +58,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:fontFamily="@font/game_of_thrones"
         android:text="Next"
         android:textSize="35sp"
-        android:fontFamily="@font/game_of_thrones"
-        app:layout_constraintTop_toBottomOf="@id/fragment_land_selection_for_battle_destination"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_land_selection_for_battle_destination" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
